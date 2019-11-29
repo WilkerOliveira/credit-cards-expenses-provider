@@ -35,9 +35,9 @@ class CreditCardStreamViewModel {
 
   _initCards() {
     _creditCards
-        .add(CreditCard("1234 5678 9012 3456", "2020/12", "First Name"));
+        .add(CreditCard("1234 5678 9012 3456", "2020/12", "First Current Time"));
     _creditCards
-        .add(CreditCard("9876 5432 8976 1122", "2022/05", "Second Name"));
+        .add(CreditCard("9876 5432 8976 1122", "2022/05", "Second Current Time"));
 
     setCurrentCreditCard(_creditCards.first);
   }

@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
-class CreditCardFront extends StatefulWidget {
+class CreditCardFrontWidget extends StatefulWidget {
   final CreditCard creditCard;
 
-  const CreditCardFront({Key key, this.creditCard}) : super(key: key);
+  const CreditCardFrontWidget({Key key, this.creditCard}) : super(key: key);
   @override
-  _CreditCardFrontState createState() => _CreditCardFrontState();
+  _CreditCardFrontWidgetState createState() => _CreditCardFrontWidgetState();
 }
 
-class _CreditCardFrontState extends State<CreditCardFront> {
+class _CreditCardFrontWidgetState extends State<CreditCardFrontWidget> {
   String visa = 'assets/images/ic_visa.svg';
   String chip = 'assets/images/ic_chip.png';
 
