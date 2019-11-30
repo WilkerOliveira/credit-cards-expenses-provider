@@ -6,8 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
 
-class WithNotifyListenersScreen extends StatelessWidget {
+class WithNotifyListenersScreen extends StatefulWidget {
+  @override
+  _WithNotifyListenersScreenState createState() => _WithNotifyListenersScreenState();
+}
+
+class _WithNotifyListenersScreenState extends State<WithNotifyListenersScreen> {
   final myController = TextEditingController();
+
   final CreditCardViewModel creditCardModel = CreditCardViewModel();
 
   @override

@@ -13,9 +13,8 @@ class CreditCardStreamViewModel {
       _creditCardStreamController.stream;
 
   StreamController<List<Expense>> _currentExpensesStreamController;
-  Stream<List<Expense>> _localCurrentExpensesStream;
   Stream<List<Expense>> get currentExpensesStream =>
-      _localCurrentExpensesStream;
+      _currentExpensesStreamController.stream;
 
   StreamController<CreditCard> _currentCreditCardController;
   Stream<CreditCard> get currentCreditCardStream =>
@@ -27,17 +26,17 @@ class CreditCardStreamViewModel {
 
     this._creditCardStreamController = StreamController();
     this._creditCardStreamController.sink.add(_creditCards);
-    this._currentExpensesStreamController = StreamController.broadcast();
+    this._currentExpensesStreamController = StreamController();
     this._currentCreditCardController = StreamController();
 
     _initCards();
   }
 
   _initCards() {
-    _creditCards
-        .add(CreditCard("1234 5678 9012 3456", "2020/12", "First Current Time"));
-    _creditCards
-        .add(CreditCard("9876 5432 8976 1122", "2022/05", "Second Current Time"));
+    _creditCards.add(
+        CreditCard("1234 5678 9012 3456", "2020/12", "First Current Time"));
+    _creditCards.add(
+        CreditCard("9876 5432 8976 1122", "2022/05", "Second Current Time"));
 
     setCurrentCreditCard(_creditCards.first);
   }
@@ -50,7 +49,6 @@ class CreditCardStreamViewModel {
       _current.expenses = List<Expense>();
 
     this._currentExpensesStreamController.sink.add(_current.expenses);
-    _localCurrentExpensesStream = this._currentExpensesStreamController.stream;
 
     this._currentCreditCardController.sink.add(_current);
   }
@@ -58,7 +56,6 @@ class CreditCardStreamViewModel {
   addExpense(String expenses) {
     _current.expenses.add(Expense(expenses));
     this._currentExpensesStreamController.sink.add(_current.expenses);
-    _localCurrentExpensesStream = this._currentExpensesStreamController.stream;
   }
 
   searchExpense(String expense) {
