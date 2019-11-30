@@ -14,9 +14,8 @@ class WithStreamScreen extends StatefulWidget {
 }
 
 class _WithStreamScreenState extends State<WithStreamScreen> {
-
   final myController = TextEditingController();
-  CreditCardStreamViewModel creditCardModel = CreditCardStreamViewModel();
+  CreditCardStreamViewModel creditCardModel;
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -27,7 +26,8 @@ class _WithStreamScreenState extends State<WithStreamScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
+     creditCardModel = Provider.of<CreditCardStreamViewModel>(context);
+
     print("***** _WithStreamScreenState.build *****");
     ScreenUtil.instance = ScreenUtil(
       width: 410.0,

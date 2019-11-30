@@ -8,16 +8,20 @@ import 'package:provider/provider.dart';
 
 class WithNotifyListenersScreen extends StatefulWidget {
   @override
-  _WithNotifyListenersScreenState createState() => _WithNotifyListenersScreenState();
+  _WithNotifyListenersScreenState createState() =>
+      _WithNotifyListenersScreenState();
 }
 
 class _WithNotifyListenersScreenState extends State<WithNotifyListenersScreen> {
   final myController = TextEditingController();
 
-  final CreditCardViewModel creditCardModel = CreditCardViewModel();
+  CreditCardViewModel creditCardModel;
 
   @override
   Widget build(BuildContext context) {
+    
+    creditCardModel = Provider.of<CreditCardViewModel>(context);
+
     print("***** WithNotifyListenersScreen.build *****");
     ScreenUtil.instance = ScreenUtil(
       width: 410.0,
